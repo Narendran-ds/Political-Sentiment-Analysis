@@ -85,7 +85,7 @@ def run_batch_predictions(model_name: str):
     if df.empty:
         return pd.DataFrame()
 
-    texts      = df['text'].fillna('').tolist()
+    texts = df['cleaned_tweet'].fillna('').tolist()
     pred_df    = predict_batch(texts, model_name, components)
 
     # Merge with original
