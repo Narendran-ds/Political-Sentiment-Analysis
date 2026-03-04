@@ -2,14 +2,14 @@
 
 # Core Data Science
 numpy>=1.26
-pandas>=2.2
+pandas
 scipy
 
 # Machine Learning
-scikit-learn>=1.4
+scikit-learn
 joblib
 
-# NLP & Text Processing
+# NLP
 nltk
 wordcloud
 
@@ -19,6 +19,7 @@ shap
 # Visualization
 matplotlib
 seaborn
+altair==4.2.2
 
 # Web Dashboard
 streamlit
