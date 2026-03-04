@@ -10,6 +10,9 @@ import streamlit as st
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+import nltk
+nltk.download("punkt")
+nltk.download("stopwords")
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
@@ -52,8 +55,6 @@ def load_dataset():
     if not os.path.exists(PROCESSED_DATA_PATH):
         return pd.DataFrame()
     df = pd.read_csv(PROCESSED_DATA_PATH)
-    df['sentiment'] = df['label'].map(SENTIMENT_LABELS)
-    return df
 
 
 @st.cache_data
