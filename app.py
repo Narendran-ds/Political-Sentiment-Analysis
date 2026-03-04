@@ -58,7 +58,7 @@ def load_dataset():
             st.error(f"Dataset not found: {PROCESSED_DATA_PATH}")
             return pd.DataFrame()
 
-        df = pd.read_csv(PROCESSED_DATA_PATH)
+        df = pd.read_csv("data/processed/cleaned_data.csv")
 
         if 'label' not in df.columns:
             st.error("Dataset missing 'label' column.")
