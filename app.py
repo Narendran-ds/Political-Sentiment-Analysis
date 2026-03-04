@@ -50,11 +50,26 @@ def load_models():
 
 
 @st.cache_data
+@st.cache_data
 def load_dataset():
     """Load processed dataset — cached for session."""
-    if not os.path.exists(PROCESSED_DATA_PATH):
+    try:
+        if not os.path.exists(PROCESSED_DATA_PATH):
+            st.error(f"Dataset not found: {PROCESSED_DATA_PATH}")
+            return pd.DataFrame()
+
+        df = pd.read_csv(PROCESSED_DATA_PATH)
+
+        if 'label' not in df.columns:
+            st.error("Dataset missing 'label' column.")
+            return pd.DataFrame()
+
+        df['sentiment'] = df['label'].map(SENTIMENT_LABELS)
+        return df
+
+    except Exception as e:
+        st.error(f"Dataset loading error: {e}")
         return pd.DataFrame()
-    df = pd.read_csv(PROCESSED_DATA_PATH)
 
 
 @st.cache_data
