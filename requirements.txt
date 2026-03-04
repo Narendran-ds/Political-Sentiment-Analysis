@@ -1,6 +1,4 @@
-# Political Sentiment Intelligence Dashboard
-
-# Core Data Science
+# Core
 numpy>=1.26
 pandas
 scipy
@@ -21,8 +19,8 @@ matplotlib
 seaborn
 altair==4.2.2
 
-# Web Dashboard
-streamlit
+# Dashboard
+streamlit>=1.33
 
 # Twitter API
 tweepy
